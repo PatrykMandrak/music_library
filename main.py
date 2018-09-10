@@ -10,7 +10,7 @@ def master_func():
         decision_made_by_the_user_of_this_program = inputs.menu_input()
         for i in range(6):
             if i ==  int(decision_made_by_the_user_of_this_program)-1:
-                print(tuple_of_functions[i]
+                print(tuple_of_functions[i])
                 break
 
 master_func()
