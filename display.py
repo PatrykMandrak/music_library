@@ -14,11 +14,17 @@ def view_all_imported_albums(albums_data):
         albums_in_text+=str(album)+'\n'
     return print(albums_in_text)
 
-def find_by_genre(albums_data, inputed_genre):
-    print('inputed genre: ', inputed_genre)
+def find_by_genre_or_artist_or_album(albums_data, input_to_find, choice=2):
+    print('inputed genre: ', input_to_find)
     #print('data', albums_data)
-    albums_with_inputed_genre = []
+    if choice==0:
+        options=3
+    elif choice==1:
+        options=0
+    else:
+        options=1
+    albums_with_input_to_find = []
     for album in albums_data:
-        if album[3]==inputed_genre:
-            albums_with_inputed_genre.append(album)
-    return print(albums_with_inputed_genre)
+        if album[options]==input_to_find:
+            albums_with_input_to_find.append(album)
+    return print(albums_with_input_to_find)
