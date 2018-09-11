@@ -32,6 +32,20 @@ def valid_genre_or_artist_or_album_input(albums_data, choice=2):
             return check_if_exists
         print("This " + artist_or_genre + " doesn't exist")
 
+def valid_time_range_format():
+    while True:
+        time_format_check=input(' Enter time range in format from year to year (yyyy-yyyy): ')
+        if '-' in time_format_check:
+            time_format_check=time_format_check.split('-')
+            try:
+                time_format_check[0]=int(time_format_check[0])
+                time_format_check[1]=int(time_format_check[1])
+                return time_format_check
+            except:
+                print('Invalid format, u need to input numbers as years')
+        else:
+            print('Invalid format')
+
 def menu_input():
     user_choice = valid_input(6)
     return user_choice
@@ -39,3 +53,7 @@ def menu_input():
 def find_by_choice_input(albums_data, choice=2):
     user_choice = valid_genre_or_artist_or_album_input(albums_data, choice)
     return user_choice
+
+def find_by_time_range_input():
+    user_choice_time_range=valid_time_range_format()
+    return user_choice_time_range

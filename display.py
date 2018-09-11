@@ -15,7 +15,7 @@ def view_all_imported_albums(albums_data):
     return print(albums_in_text)
 
 def find_by_genre_or_artist_or_album(albums_data, input_to_find, choice=2):
-    print('inputed genre: ', input_to_find)
+    #print('inputed genre: ', input_to_find)
     #print('data', albums_data)
     if choice==0:
         options=3
@@ -28,3 +28,10 @@ def find_by_genre_or_artist_or_album(albums_data, input_to_find, choice=2):
         if album[options]==input_to_find:
             albums_with_input_to_find.append(album)
     return print(albums_with_input_to_find)
+
+def find_by_time_range(albums_data, input_to_find):
+    albums_by_time_range=[]
+    for album in albums_data:
+        if input_to_find[0] <= int(album[2]) <= input_to_find[1]:
+            albums_by_time_range.append(album)
+    return print(albums_by_time_range)
