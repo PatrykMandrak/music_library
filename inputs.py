@@ -34,7 +34,7 @@ def valid_genre_or_artist_or_album_input(albums_data, choice=2):
 
 def valid_time_range_format():
     while True:
-        time_format_check=input(' Enter time range in format from year to year (yyyy-yyyy): ')
+        time_format_check = input(' Enter time range in format from year to year (yyyy-yyyy): ')
         if '-' in time_format_check:
             time_format_check=time_format_check.split('-')
             try:
@@ -46,6 +46,17 @@ def valid_time_range_format():
         else:
             print('Invalid format')
 
+def valid_short_or_long_format_XD():
+    while True:
+        short_or_long_check = input(" Enter \'shortest\' to find the shortest, or enter \'longest\' to find the longest: ").upper()
+        if short_or_long_check=='SHORTEST':
+            return False
+        elif short_or_long_check=='LONGEST':
+            return True
+        else:
+            print('Invalid format, input only \'shortest\' or \'longest\' ')
+
+
 def menu_input():
     user_choice = valid_input(6)
     return user_choice
@@ -55,5 +66,9 @@ def find_by_choice_input(albums_data, choice=2):
     return user_choice
 
 def find_by_time_range_input():
-    user_choice_time_range=valid_time_range_format()
+    user_choice_time_range = valid_time_range_format()
     return user_choice_time_range
+
+def find_the_shortest_or_longest_input():
+    user_choice_short_or_long = valid_short_or_long_format_XD()
+    return user_choice_short_or_long
