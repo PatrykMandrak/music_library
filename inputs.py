@@ -1,3 +1,5 @@
+import os
+
 def valid_input(number_of_options):
     while True:
         possible_choices = [i+1 for i in range(number_of_options)]
@@ -7,6 +9,7 @@ def valid_input(number_of_options):
         except:
             print(" You must input a number! ")
         if question in possible_choices:
+            os.system('clear')
             return str(question)
         print(" Choose only displayed options! ")
 
@@ -29,6 +32,7 @@ def valid_genre_or_artist_or_album_input(albums_data, choice=2):
         print(' Possible choices:',possible_genres)
         check_if_exists = input(" " + artist_or_genre + " you want to find: ")
         if check_if_exists in possible_genres:
+            os.system('clear')
             return check_if_exists
         print("This " + artist_or_genre + " doesn't exist")
 
@@ -40,6 +44,7 @@ def valid_time_range_format():
             try:
                 time_format_check[0]=int(time_format_check[0])
                 time_format_check[1]=int(time_format_check[1])
+                os.system('clear')
                 return time_format_check
             except:
                 print('Invalid format, u need to input numbers as years')
@@ -50,8 +55,10 @@ def valid_short_or_long_format_XD():
     while True:
         short_or_long_check = input(" Enter \'shortest\' to find the shortest, or enter \'longest\' to find the longest: ").upper()
         if short_or_long_check=='SHORTEST':
+            os.system('clear')
             return False
         elif short_or_long_check=='LONGEST':
+            os.system('clear')
             return True
         else:
             print('Invalid format, input only \'shortest\' or \'longest\' ')
