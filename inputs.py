@@ -1,9 +1,10 @@
 import os
+import display
 
 def valid_input(number_of_options):
     while True:
         possible_choices = [i+1 for i in range(number_of_options)]
-        question = input(' Enter Your choice: ')
+        question = input('\n Enter Your choice: ')
         try:
             question = int(question)
         except:

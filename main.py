@@ -15,8 +15,10 @@ def setup_menu_get_input():
 def master_func():
     data = file_handler.import_data()
     os.system('clear')
+    display.print_logo()
     user_choice = setup_menu_get_input()
     while True:
+        display.print_logo()
         if 1 ==  user_choice:
             display.view_all_imported_albums(data)
             user_choice = setup_menu_get_input()

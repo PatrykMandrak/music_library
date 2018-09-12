@@ -1,4 +1,10 @@
 import texttable as tt
+import display
+
+def print_logo():
+    with open('logo_graphics.txt') as file:
+        logo = file.read()
+    return print(logo)
 
 def menu():
     print(' What do you want to do?: ')
@@ -39,6 +45,7 @@ def find_by_genre_or_artist_or_album(albums_data, input_to_find, choice=2):
     for album in albums_data:
         if album[options]==input_to_find:
             albums_with_input_to_find.append(album)
+    display.print_logo()
     return make_a_table(albums_with_input_to_find)
 
 def find_by_time_range(albums_data, input_to_find):
@@ -46,6 +53,7 @@ def find_by_time_range(albums_data, input_to_find):
     for album in albums_data:
         if input_to_find[0] <= int(album[2]) <= input_to_find[1]:
             albums_by_time_range.append(album)
+    display.print_logo()
     return make_a_table(albums_by_time_range)
 
 def find_the_shortest_or_longest(albums_data, shortest_or_longest):
@@ -63,6 +71,8 @@ def find_the_shortest_or_longest(albums_data, shortest_or_longest):
             longest = time_to_float
             longest_album = album
     if shortest_or_longest==True:
+        display.print_logo()
         return make_a_table([longest_album])
     else:
+        display.print_logo()
         return make_a_table([shortest_album])
