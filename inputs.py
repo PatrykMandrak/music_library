@@ -29,7 +29,7 @@ def valid_genre_or_artist_or_album_input(albums_data, choice=2):
         for i in range(len(possible_genres_setup)):
             if possible_genres_setup[i] not in possible_genres:
                 possible_genres.append(possible_genres_setup[i])
-        print(' Possible choices:',possible_genres)
+        print(' Possible choices:\n',str(possible_genres)[1:-1])
         check_if_exists = input(" " + artist_or_genre + " you want to find: ")
         if check_if_exists in possible_genres:
             os.system('clear')
