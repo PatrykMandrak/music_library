@@ -37,6 +37,10 @@ def master_func():
         elif 6 == user_choice:
             display.find_by_genre_or_artist_or_album(data,inputs.find_by_choice_input(data))
             user_choice = setup_menu_get_input()
+        elif 7 == user_choice:
+            file_handler.add_album()
+            data = file_handler.import_data()
+            user_choice = setup_menu_get_input()
 
 master_func()
 

@@ -13,7 +13,8 @@ def menu():
     print('3: Find album by the given time range')
     print('4: Find the shortest or longest album')
     print('5: Find albums created by given artis')
-    print('6: Find album by album')
+    print('6: Find album by album\'s name')
+    print('7: Add new album')
 
 def make_a_table(table_data):
     tab = tt.Texttable()
