@@ -1,5 +1,83 @@
 import os
-import display
+
+def bulletproof_release_year():
+    while True:
+        try:
+            release = int(input('Enter release date (only year): '))
+            return str(release)
+        except:
+            print(' Invalid input, enter only years')
+
+def bulletproof_length():
+    while True:
+        length = input('Enter album\'s length in format (mm:ss): ')
+        if ':' in length:
+            length = length.split(':')
+            try:
+                int(length[0]) + (int(length[1])/100)
+                float(length[0]) + (float(length[1])/100)
+            except:
+                print('Invalid format')
+            try:
+                if int(length[1]) >=60:
+                    length[1] = '59'
+                length = str(length[0]) +':' + str(length[1])[:2]
+                return length
+            except:
+                print(' Enter valid data')
+        else:
+            print('Invalid format')
+
+
+def valid_input_to_change(what_to_edit):
+    if what_to_edit==0:
+        input_to_edit=input(' Edit artist name for this album: ')
+        return input_to_edit
+    elif what_to_edit==1:
+        input_to_edit=input(' Edit album name for this album: ')
+        return input_to_edit
+    elif what_to_edit==2:
+        input_to_edit=bulletproof_release_year() # to bulletproof
+        return input_to_edit
+    elif what_to_edit==3:
+        input_to_edit=input(' Edit album\'s genre: ')
+        return input_to_edit
+    elif what_to_edit==4:
+        input_to_edit=bulletproof_length() # to bulletproof
+        return input_to_edit
+
+
+def valid_input_to_edit(index_length):
+    while True:
+        try:
+            choosen_album = int(input(' Enter a number of an album u want to edit: '))-1
+        except:
+            print('You must enter a number.')
+        if 0 <= choosen_album <= index_length:
+            break
+        else:
+            print('There is no such number.')
+    print('\nWhich element you want to edit? Choose from following options:')
+    print('Artist, Album, Released, Genre, Length')
+    options = ['artist', 'album', 'released', 'genre', 'length']
+    while True:
+        choosen_element = input(' Enter the element: ').lower()
+        if choosen_element in options:
+            for i in range(len(options)):
+                if choosen_element == options[i]:
+                    choosen_element = i
+                    return [choosen_album, choosen_element]
+        print(' There is no such element')
+
+def bulletproof_add_album_input():
+    print(' Adding new album...')
+    artist = input('Enter artist name: ')
+    album_name = input('Enter album name: ')
+    release = bulletproof_release_year()
+    genre = input('Enter a genre: ')
+    length = bulletproof_length()
+    new_album_list_done = [artist, album_name, release, genre, length]
+    return new_album_list_done
 
 def valid_input(number_of_options):
     while True:
@@ -66,7 +144,7 @@ def valid_short_or_long_format_XD():
 
 
 def menu_input():
-    user_choice = valid_input(7)
+    user_choice = valid_input(8)
     return user_choice
 
 def find_by_choice_input(albums_data, choice=2):

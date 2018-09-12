@@ -1,6 +1,6 @@
-#python module imports
+# python module imports
 import os
-#file module imports
+# file module imports
 import file_handler
 import display
 import inputs
@@ -38,7 +38,17 @@ def master_func():
             display.find_by_genre_or_artist_or_album(data,inputs.find_by_choice_input(data))
             user_choice = setup_menu_get_input()
         elif 7 == user_choice:
-            file_handler.add_album()
+            os.system('clear')
+            display.print_logo()
+            file_handler.add_album(inputs.bulletproof_add_album_input())
+            os.system('clear')
+            display.print_logo()
+            data = file_handler.import_data()
+            user_choice = setup_menu_get_input()
+        elif 8 == user_choice:
+            display.make_a_table(data, True)
+            what_to_change = inputs.valid_input_to_edit(len(data))
+            file_handler.edit_album(what_to_change, inputs.valid_input_to_change(what_to_change[1]))
             data = file_handler.import_data()
             user_choice = setup_menu_get_input()
 
