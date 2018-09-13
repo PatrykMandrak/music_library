@@ -46,18 +46,23 @@ def valid_input_to_change(what_to_edit):
         input_to_edit=bulletproof_length() # to bulletproof
         return input_to_edit
 
-
-def valid_input_to_edit(index_length):
+def get_valid_index(index_length, deleteprint = False):
     while True:
         try:
-            choosen_album = int(input(' Enter a number of an album u want to edit: '))-1
+            edit_or_delete = 'edit'
+            if deleteprint == True:
+                edit_or_delete = 'delete'
+            choosen_album = int(input(' Enter a number of an album u want to {0} '.format(edit_or_delete)))-1
             print('Remember, you must enter a number.')
             if 0 <= choosen_album <= index_length-1:
-                break
+                return choosen_album
             else:
                 print('There is no such number in data.')
         except:
             print('Remember, you must enter a number.')
+
+def valid_input_to_edit(index_length):
+    choosen_album = get_valid_index(index_length)
     print('\nWhich element you want to edit? Choose from following options:')
     print('Artist, Album, Released, Genre, Length')
     options = ['artist', 'album', 'released', 'genre', 'length']
@@ -145,7 +150,7 @@ def valid_short_or_long_format_XD():
 
 
 def menu_input():
-    user_choice = valid_input(8)
+    user_choice = valid_input(9)
     return user_choice
 
 def find_by_choice_input(albums_data, choice=2):

@@ -54,6 +54,14 @@ def master_func():
             display.print_logo()
             display.make_a_table(data)
             user_choice = setup_menu_get_input()
+        elif 9 == user_choice:
+            display.make_a_table(data, True)
+            file_handler.del_album(inputs.get_valid_index(len(data),True))
+            data = file_handler.import_data()
+            os.system('clear')
+            display.print_logo()
+            display.make_a_table(data)
+            user_choice = setup_menu_get_input()
 
 master_func()
 

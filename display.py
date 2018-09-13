@@ -15,6 +15,7 @@ def menu():
     print('6: Find album by album\'s name')
     print('7: Add new album')
     print('8: Edit choosen album')
+    print('9: Delete choosen album')
 
 def make_a_table(table_data, print_index = False):
     tab = tt.Texttable()
