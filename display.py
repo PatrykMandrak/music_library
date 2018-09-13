@@ -1,12 +1,23 @@
 import texttable as tt
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 def print_logo():
     with open('logo_graphics.txt') as file:
         logo = file.read()
+        logo = bcolors.FAIL+bcolors.BOLD+logo+bcolors.ENDC
     return print(logo)
 
 def menu():
-    print(' What do you want to do?: ')
+    print(bcolors.WARNING+bcolors.BOLD+' What do you want to do?: ')
     print('1: View all imported albums')
     print('2: Find albums by genre')
     print('3: Find album by the given time range')
@@ -16,19 +27,19 @@ def menu():
     print('7: Add new album')
     print('8: Edit choosen album')
     print('9: Delete choosen album')
+    print('10: EXIT'+bcolors.ENDC)
 
-def make_a_table(table_data, print_index = False):
+def make_a_table(table_data):
     tab = tt.Texttable()
-    tab.header(['Artist:','Album','Released:','Genre:','Length:'])
+    tab.header(['ID','Artist:','Album','Released:','Genre:','Length:'])
     tlist=table_data # ustaw liste danych
+    id_number = [str(i+1)+'.' for i in range(len(tlist))]
     artists = [i[0] for i in tlist]
-    if print_index == True:
-        artists = [str(i+1)+'. '+artists[i] for i in range(len(artists))]
     albums = [i[1] for i in tlist]
     releases = [i[2] for i in tlist]
     genres = [i[3] for i in tlist]
     lengths = [i[4] for i in tlist]
-    for row in zip(artists, albums, releases, genres, lengths):
+    for row in zip(id_number ,artists, albums, releases, genres, lengths):
         tab.add_row(row)
     s = tab.draw()
     return print(s)

@@ -1,5 +1,6 @@
 # python module imports
 import os
+from sys import exit
 # file module imports
 import file_handler
 import display
@@ -46,7 +47,7 @@ def master_func():
             data = file_handler.import_data()
             user_choice = setup_menu_get_input()
         elif 8 == user_choice:
-            display.make_a_table(data, True)
+            display.make_a_table(data)
             what_to_change = inputs.valid_input_to_edit(len(data))
             file_handler.edit_album(what_to_change, inputs.valid_input_to_change(what_to_change[1]))
             data = file_handler.import_data()
@@ -55,13 +56,16 @@ def master_func():
             display.make_a_table(data)
             user_choice = setup_menu_get_input()
         elif 9 == user_choice:
-            display.make_a_table(data, True)
+            display.make_a_table(data)
             file_handler.del_album(inputs.get_valid_index(len(data),True))
             data = file_handler.import_data()
             os.system('clear')
             display.print_logo()
             display.make_a_table(data)
             user_choice = setup_menu_get_input()
+        elif 10 == user_choice:
+            os.system('clear')
+            exit()
 
 master_func()
 

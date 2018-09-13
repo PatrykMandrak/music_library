@@ -150,7 +150,7 @@ def valid_short_or_long_format_XD():
 
 
 def menu_input():
-    user_choice = valid_input(9)
+    user_choice = valid_input(10)
     return user_choice
 
 def find_by_choice_input(albums_data, choice=2):
