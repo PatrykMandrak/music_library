@@ -51,12 +51,13 @@ def valid_input_to_edit(index_length):
     while True:
         try:
             choosen_album = int(input(' Enter a number of an album u want to edit: '))-1
+            print('Remember, you must enter a number.')
+            if 0 <= choosen_album <= index_length-1:
+                break
+            else:
+                print('There is no such number in data.')
         except:
-            print('You must enter a number.')
-        if 0 <= choosen_album <= index_length:
-            break
-        else:
-            print('There is no such number.')
+            print('Remember, you must enter a number.')
     print('\nWhich element you want to edit? Choose from following options:')
     print('Artist, Album, Released, Genre, Length')
     options = ['artist', 'album', 'released', 'genre', 'length']

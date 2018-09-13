@@ -50,6 +50,9 @@ def master_func():
             what_to_change = inputs.valid_input_to_edit(len(data))
             file_handler.edit_album(what_to_change, inputs.valid_input_to_change(what_to_change[1]))
             data = file_handler.import_data()
+            os.system('clear')
+            display.print_logo()
+            display.make_a_table(data)
             user_choice = setup_menu_get_input()
 
 master_func()
