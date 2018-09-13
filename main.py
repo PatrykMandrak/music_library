@@ -66,5 +66,5 @@ def master_func():
         elif 10 == user_choice:
             os.system('clear')
             break
-
+        
 master_func()
