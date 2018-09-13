@@ -65,29 +65,6 @@ def master_func():
             user_choice = setup_menu_get_input()
         elif 10 == user_choice:
             os.system('clear')
-            exit()
-
-master_func()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            break
 
 master_func()
